@@ -5,6 +5,7 @@ def negate(int)
     neg += sign
     int += sign
   end
+  neg
 end
 
 def minus(int1, int2)
