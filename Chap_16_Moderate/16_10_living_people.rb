@@ -9,7 +9,7 @@ def living_people(people)
   
   max_alive, max_alive_year, alive = 0
   
-  born.length.times do |idx|
+  100.times do |idx|
     alive += born[idx]
     alive -= died[idx]
     if alive > max_alive

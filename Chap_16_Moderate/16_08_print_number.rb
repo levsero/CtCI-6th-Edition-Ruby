@@ -38,7 +38,7 @@ def in_words(int)
   end
   return '' if int == 0
   numbers_to_name.each do |num, name|
-    if int.to_s.length == 1 && int/num > 0
+    if int < 1 && int/num > 0
       return str + "#{name}"
     elsif int < 100 && int/num > 0
       return str + "#{name}" if int%num == 0

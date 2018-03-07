@@ -1,18 +1,12 @@
-def diving_board(k, shorter, longer)
-  lengths = Set.new
-  get_all_lengths()
-end
-
-def get_all_lengths(remaining_boards, current_length, shorter, longer, lengths, memo={})
+require 'set'
+def diving_board(planks, shorter, longer)
+  return Set.new([0]) if planks == 0
   
-  if remaining_boards == 0
-    lengths << current_length
-    return
+  lengths = Set.new()
+  prev_lengths = diving_board(planks - 1, shorter, longer)
+  prev_lengths.each do |length|
+    lengths << length + shorter
+    lengths << length + longer
   end
-  
-  get_all_lengths(remaining_boards-1, current_length + shorter, shorter, longer)
-  get_all_lengths(remaining_boards-1, current_length + longer, shorter, longer)
-  memo["#{remaining_boards}#{current_length}"] = 
+  lengths
 end
-
-diving_board(3, 1, 2) => [3,4,5,6]

@@ -9,12 +9,12 @@ def intersect?(lines)
   # check y coord
   return unless line_1.y_range.include?(line_2.start_y) || line_1.y_range.include?(line_2.end_y)
   
-  if line_1.slope == line_2.slope
-    return true if line_2.y_intercept == line_1.y_intercept
-  end
-  
   x_intercept = (line_2.y_intercept - line_1.y_intercept) / (line_1.slope - line_2.slope)
   y_intercept = x_intercept * line_1.slope + line_1.y_intercept
+
+  if line_1.slope == line_2.slope
+    return true if line_2.y_intercept == line_1.y_intercept
+  end  
 
   if line_1.y_range.include?(y_intercept) && line_1.x_range.include?(x_intercept)
       && line_2.y_range.include?(y_intercept) && line_2.x_range.include?(x_intercept)
